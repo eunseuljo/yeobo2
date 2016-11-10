@@ -80,6 +80,8 @@ public class SecondActivity extends AppCompatActivity
         fragmentArrayList.add(new TestFragment1());
         fragmentArrayList.add(TestFragment2.newInstance(1));
         fragmentArrayList.add(new TestFragment3());
+        fragmentArrayList.add(new TestFragment4());
+
 
         TestViewPagerAdapter adapter = new TestViewPagerAdapter(getSupportFragmentManager(), fragmentArrayList);
         pager.setAdapter(adapter);
