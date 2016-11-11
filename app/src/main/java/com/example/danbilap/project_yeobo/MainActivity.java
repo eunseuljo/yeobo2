@@ -134,9 +134,9 @@ public class MainActivity extends AppCompatActivity
                 //               bundle.putString("imgurl", t.getImgurl());
                 travel_number = t.getT_id();
 
-
+            if(url!=null){
                 ShareTask shareTask = new ShareTask();
-                shareTask.execute(url);
+                shareTask.execute(url);}
                 Intent intent = new Intent(MainActivity.this, SecondActivity.class);
                 intent.putExtras(bundle);
                 startActivity(intent);
