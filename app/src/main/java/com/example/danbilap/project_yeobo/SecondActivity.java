@@ -3,36 +3,24 @@ package com.example.danbilap.project_yeobo;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.astuetz.PagerSlidingTabStrip;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
 
 import java.util.ArrayList;
 
-import retrofit.Callback;
-import retrofit.RestAdapter;
-import retrofit.RetrofitError;
-import retrofit.client.Response;
-
 public class SecondActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener{
+        implements NavigationView.OnNavigationItemSelectedListener {
 
-    String t_title, id,url,image;
+    String t_title, id, url, image;
     int t_num;
     TextView title;
-
 
 
     @Override
@@ -44,23 +32,22 @@ public class SecondActivity extends AppCompatActivity
 
     }
 
-    void init(){
+    void init() {
 
-        title = (TextView)findViewById(R.id.title);
+        title = (TextView) findViewById(R.id.title);
 
         Bundle bundle = getIntent().getExtras();
 
-        t_title  = bundle.getString("t_title");
+        t_title = bundle.getString("t_title");
         title.setText(t_title);
 
         t_num = bundle.getInt("t_num");
-        id=bundle.getString("u_id");
-        url=bundle.getString("url");
+        id = bundle.getString("u_id");
+        url = bundle.getString("url");
 //        image=bundle.getString("imgurl");
-        if(url!=null){
-            saveUrl(url,t_num);
+        if (url != null) {
+            // saveUrl(url,t_num);
         }
-        Toast.makeText(this,image,Toast.LENGTH_LONG).show();
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         //은슬
@@ -91,11 +78,14 @@ public class SecondActivity extends AppCompatActivity
         tabs.setViewPager(pager);
 
 
-
-
     }
 
-    public void saveUrl(final String share_url,final int t_num){
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item) {
+        return false;
+    }
+}
+  /*  public void saveUrl(final String share_url,final int t_num){
             new Thread(new Runnable() {
                 @Override
                 public void run() {
@@ -125,6 +115,7 @@ public class SecondActivity extends AppCompatActivity
 
     @Override
     public void onBackPressed() { // 뒤로 가기 했을 때 MainActivity로 돌아가도록
+<<<<<<< HEAD
  //       super.onBackPressed();
 //        SecondActivity.this.finish();
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -180,4 +171,8 @@ public class SecondActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-}
+=======
+        super.onBackPressed();
+        SecondActivity.this.finish();
+    }*/
+
