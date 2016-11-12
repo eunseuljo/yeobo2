@@ -74,6 +74,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderManager.Lo
     CheckBox Auto_Login;
     SharedPreferences setting;
     SharedPreferences.Editor editor;
+    private BackPressCloseSystem backPressCloseSystem;
 
     String email, password, result,url;
     int num=3;
@@ -91,7 +92,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderManager.Lo
         url=share.getStringExtra("url");
         if(share.getStringExtra("set")!=null){
         set=share.getStringExtra("set");}
-
+        backPressCloseSystem = new BackPressCloseSystem(this);
         
 
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
@@ -364,5 +365,10 @@ public class LoginActivity extends AppCompatActivity implements LoaderManager.Lo
                 });
             }
         }).start();
+    }
+
+    @Override
+    public void onBackPressed() {
+        backPressCloseSystem.onBackPressed();
     }
 }

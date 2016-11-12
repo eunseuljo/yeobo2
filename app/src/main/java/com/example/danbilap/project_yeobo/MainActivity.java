@@ -135,6 +135,7 @@ public class MainActivity extends AppCompatActivity
                 bundle.putInt("t_num", t.getT_id());
                 bundle.putString("u_id", t.getU_id());
                 bundle.putString("url", t.getUrl());
+                bundle.putInt("c_num",t.getC_num());
                 //               bundle.putString("imgurl", t.getImgurl());
                 travel_number = t.getT_id();
 
@@ -224,11 +225,12 @@ public class MainActivity extends AppCompatActivity
                         for (int i = 0; i < result.size(); i++) {
                             JsonObject obj = (JsonObject) result.get(i);
                             int t_num = obj.get("travel_number").getAsInt();
-                            String t_title = obj.get("travel_title").getAsString();
                             String t_start = obj.get("travel_start").getAsString();
                             String t_finish = obj.get("travel_finish").getAsString();
+                            String t_title = obj.get("travel_title").getAsString();
+                            int c_num=obj.get("city_num").getAsInt();
                             // 국기 이미지 가져와야함
-                            Travel t = new Travel(R.drawable.united_states_of_america, t_num, t_title, t_start, t_finish, u_id, short_url);
+                            Travel t = new Travel(R.drawable.united_states_of_america, t_num, t_title, t_start, t_finish, u_id, short_url,c_num);
 
 
                             t_arr.add(t);
