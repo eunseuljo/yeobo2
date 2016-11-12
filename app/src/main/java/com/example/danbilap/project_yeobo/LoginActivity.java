@@ -78,6 +78,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderManager.Lo
     String email, password, result,url;
     int num=3;
     Intent intent;
+    String set="no";
+    int check;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,6 +89,9 @@ public class LoginActivity extends AppCompatActivity implements LoaderManager.Lo
 
         Intent share=getIntent();
         url=share.getStringExtra("url");
+        if(share.getStringExtra("set")!=null){
+        set=share.getStringExtra("set");}
+
         
 
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
@@ -113,6 +118,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderManager.Lo
         mEmailSignInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                login(email,password);
                 attemptLogin();
             }
         });
@@ -144,10 +150,22 @@ public class LoginActivity extends AppCompatActivity implements LoaderManager.Lo
 
 
         if(setting.getBoolean("Auto_Login_enabled", false)){
-            mEmailView.setText(setting.getString("ID", ""));
-            mPasswordView.setText(setting.getString("PW", ""));
-            Auto_Login.setChecked(true);
-            login(setting.getString("ID", ""),setting.getString("PW", ""));
+            if(set.equals("yes")){
+                Auto_Login.setChecked(false);
+                editor.remove("ID");
+                editor.remove("PW");
+                editor.remove("Auto_Login_enabled");
+                editor.clear();
+                editor.commit();
+
+               }
+            else{
+                mEmailView.setText(setting.getString("ID", ""));
+                mPasswordView.setText(setting.getString("PW", ""));
+                Auto_Login.setChecked(true);
+                login(setting.getString("ID", ""),setting.getString("PW", ""));
+
+            }
         }
 
 
@@ -156,17 +174,13 @@ public class LoginActivity extends AppCompatActivity implements LoaderManager.Lo
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 // TODO Auto-generated method stub
                 if(isChecked){
-                    String ID = mEmailView.getText().toString();
-                    String PW = mPasswordView.getText().toString();
+                    check=1;
 
-                    editor.putString("ID", ID);
-                    editor.putString("PW", PW);
-                    editor.putBoolean("Auto_Login_enabled", true);
-                    editor.commit();
                 }else{
-//			editor.remove("ID");
-//			editor.remove("PW");
-//			editor.remove("Auto_Login_enabled");
+
+			        editor.remove("ID");
+			        editor.remove("PW");
+			        editor.remove("Auto_Login_enabled");
                     editor.clear();
                     editor.commit();
                 }
@@ -200,10 +214,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderManager.Lo
             focusView = mEmailView;
             cancel = true;
         }else {
-           login(email,password);
             if(num==1){
-                Log.d("test","test");
-                Toast.makeText(LoginActivity.this,"check id and password",Toast.LENGTH_SHORT).show();
+
             }
         }
     }
@@ -300,7 +312,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderManager.Lo
         login(deviceId);
     }*/
 
-    int login(final String id_num, final String password){
+    void login(final String id_num, final String password){
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -314,18 +326,28 @@ public class LoginActivity extends AppCompatActivity implements LoaderManager.Lo
 
 
                         if(errcode.equals("noData")){
+                            Toast.makeText(LoginActivity.this,"check id and password",Toast.LENGTH_SHORT).show();
                           num=1;
                         }
                         else if(errcode.equals("noId")){
+                            Toast.makeText(LoginActivity.this,"check id and password",Toast.LENGTH_SHORT).show();
                             num=1;
                         }
 
                         else if(errcode.equals("yesData")){
                             num=0;
-                            Login login = new Login();
+                            set="no";
+                          /*  Login login = new Login();
                             login.setId(id_num);
-                            MyApp.getApp().setLogin(login);
-
+                            MyApp.getApp().setLogin(login);*/
+                            if(check==1){
+                                String ID = mEmailView.getText().toString();
+                                String PW = mPasswordView.getText().toString();
+                                editor.putString("ID", ID);
+                                editor.putString("PW", PW);
+                                editor.putBoolean("Auto_Login_enabled", true);
+                                editor.commit();
+                            }
                             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                             intent.putExtra("id", id_num);
                             intent.putExtra("url",url);
@@ -342,6 +364,5 @@ public class LoginActivity extends AppCompatActivity implements LoaderManager.Lo
                 });
             }
         }).start();
-        return num;
     }
 }
