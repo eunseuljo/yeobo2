@@ -13,7 +13,7 @@ public interface Retrofit {
     @GET("/yeoboH.php") // 4
     public void create_travel(@Query("flag") int flag, @Query("u_id") String u_id,
                               @Query("travel_city") String t_city, @Query("travel_title") String t_title, @Query("travel_start") String t_start,
-                              @Query("travel_finish") String t_finish, Callback<JsonObject> callback);
+                              @Query("travel_finish") String t_finish,@Query("c_num") int c_num, Callback<JsonObject> callback);
 
     @GET("/yeoboH.php") // 6
     public void show_travel(@Query("flag") int flag, @Query("u_id") String u_id, retrofit.Callback<JsonObject> callback);

@@ -68,6 +68,8 @@ public class MainActivity extends AppCompatActivity
     String sharedDescription;
     String sharedTitle;
     int travel_number;
+    private BackPressCloseSystem backPressCloseSystem;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,8 +77,10 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Intent i = getIntent();
         u_id = i.getStringExtra("id");
+        show_travel(u_id);
         url = i.getStringExtra("url");
         short_url = shorten.getShortenUrl(url);
+        backPressCloseSystem = new BackPressCloseSystem(this);
 
 
         init();
@@ -116,7 +120,7 @@ public class MainActivity extends AppCompatActivity
         gridView1 = (GridView) findViewById(R.id.gridView1);
 
 
-        show_travel(u_id);
+
 
         gridAdapter = new GridAdapter(this, R.layout.gridview1_item, background, t_arr);
         // 커스텀 어댑터를 GridView 에 적용
@@ -131,6 +135,7 @@ public class MainActivity extends AppCompatActivity
                 bundle.putInt("t_num", t.getT_id());
                 bundle.putString("u_id", t.getU_id());
                 bundle.putString("url", t.getUrl());
+                bundle.putInt("c_num",t.getC_num());
                 //               bundle.putString("imgurl", t.getImgurl());
                 travel_number = t.getT_id();
 
@@ -220,11 +225,12 @@ public class MainActivity extends AppCompatActivity
                         for (int i = 0; i < result.size(); i++) {
                             JsonObject obj = (JsonObject) result.get(i);
                             int t_num = obj.get("travel_number").getAsInt();
-                            String t_title = obj.get("travel_title").getAsString();
                             String t_start = obj.get("travel_start").getAsString();
                             String t_finish = obj.get("travel_finish").getAsString();
+                            String t_title = obj.get("travel_title").getAsString();
+                            int c_num=obj.get("city_num").getAsInt();
                             // 국기 이미지 가져와야함
-                            Travel t = new Travel(R.drawable.united_states_of_america, t_num, t_title, t_start, t_finish, u_id, short_url);
+                            Travel t = new Travel(R.drawable.united_states_of_america, t_num, t_title, t_start, t_finish, u_id, short_url,c_num);
 
 
                             t_arr.add(t);
@@ -243,12 +249,7 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
+        backPressCloseSystem.onBackPressed();
     }
 
     @Override
@@ -288,6 +289,11 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_slideshow) {
 
+        }else if(id==R.id.nav_send){
+            Intent i = new Intent(MainActivity.this, LoginActivity.class);
+            i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_SINGLE_TOP);
+            i.putExtra("set","yes");
+            startActivity(i);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

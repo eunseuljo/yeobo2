@@ -1,8 +1,10 @@
 package com.example.danbilap.project_yeobo;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -80,9 +82,29 @@ public class SecondActivity extends AppCompatActivity
 
     }
 
-    @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        return false;
+        // Handle navigation view item clicks here.
+        int id = item.getItemId();
+
+//        if (id == R.id.nav_camera) {
+//            Intent intent = new Intent(SecondActivity.this, Side_1.class);
+//            startActivity(intent);
+//            // Handle the camera action
+//        }
+        if (id == R.id.nav_gallery) {
+
+        } else if (id == R.id.nav_slideshow) {
+
+        }else if(id==R.id.nav_send){
+            Intent i = new Intent(SecondActivity.this, LoginActivity.class);
+            i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_SINGLE_TOP);
+            i.putExtra("set","yes");
+            startActivity(i);
+        }
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
     }
 }
   /*  public void saveUrl(final String share_url,final int t_num){

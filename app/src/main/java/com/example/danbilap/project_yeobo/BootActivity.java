@@ -1,5 +1,6 @@
 package com.example.danbilap.project_yeobo;
 
+import android.app.ActivityManager;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;

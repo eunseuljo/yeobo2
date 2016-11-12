@@ -16,7 +16,9 @@
         android:name=".MyApp">
 
 
-    <activity android:name=".BootActivity">
+    <activity android:name=".BootActivity"
+        android:launchMode="singleTask">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.PICK"/>

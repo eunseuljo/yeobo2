@@ -38,6 +38,8 @@ import retrofit.RestAdapter;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
 
+import static android.widget.AdapterView.OnItemSelectedListener;
+
 public class AddActivity extends Activity {
 
 
@@ -53,8 +55,7 @@ public class AddActivity extends Activity {
     EditText title;
 
     String t_title, t_city, c_id, t_start, t_finish,id;
-    String[] items = { "SM3", "SM5", "SM7", "SONATA", "AVANTE", "SOUL", "K5",
-            "K7" };
+    int num;
 
 
     //    InformationSearchTask informationSearchTask;
@@ -64,6 +65,7 @@ public class AddActivity extends Activity {
     String nationbasic;   //id를 통해 받은 국가 정보
     String nationphone;   //국가이름을 통해 받은 긴급연락처 정보
    // String travelnationen;
+   ArrayAdapter<String> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,6 +73,9 @@ public class AddActivity extends Activity {
         setContentView(R.layout.activity_add);
         Intent i=getIntent();
         id=i.getStringExtra("id");
+        String[] str=getResources().getStringArray(R.array.spinnerArray);
+        adapter=new ArrayAdapter(this,android.R.layout.simple_spinner_dropdown_item,str);
+
         init();
     }
 
@@ -81,11 +86,25 @@ public class AddActivity extends Activity {
         final TextView start = (TextView)findViewById(R.id.start);
         final TextView end = (TextView)findViewById(R.id.end);
 
+        spinner1 = (Spinner)findViewById(R.id.spinner1);
+        spinner1.setAdapter(adapter);
 
-        AutoCompleteTextView edit = (AutoCompleteTextView) findViewById(R.id.travel_city);
+        spinner1.setOnItemSelectedListener(
+                new AdapterView.OnItemSelectedListener(){
+                    @Override
+                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    num=i;
+                    }
 
-        edit.setAdapter(new ArrayAdapter<String>(this,
-                android.R.layout.simple_dropdown_item_1line, items));
+                    @Override
+                    public void onNothingSelected(AdapterView<?> adapterView) {
+
+                    }
+                }
+        );
+
+
+
 
         btn_start = (Button)findViewById(R.id.btn_start);
         btn_start.setOnClickListener(new View.OnClickListener() {
@@ -136,14 +155,14 @@ public class AddActivity extends Activity {
                 t_title = title.getText().toString();
                 t_start = start.getText().toString();
                 t_finish = end.getText().toString();
-                t_city =((AutoCompleteTextView) findViewById(R.id.travel_city)).getText().toString();
+                t_city =(String)spinner1.getAdapter().getItem(spinner1.getSelectedItemPosition());
                 // t_nation, n_id은 onPostExecute에서
 
                 if (TextUtils.isEmpty(t_title)  || TextUtils.isEmpty(t_city) || TextUtils.isEmpty(t_start) || TextUtils.isEmpty(t_finish)) {
                     Toast.makeText(AddActivity.this, "모두 입력해주세요.", Toast.LENGTH_SHORT).show();
                 } else {
 
-                    create_travel(id, t_title, t_city, t_start, t_finish);
+                    create_travel(id, t_title, t_city, t_start, t_finish,num);
                 }
 
                 AddActivity.this.finish();
@@ -164,39 +183,14 @@ public class AddActivity extends Activity {
     }
 
 
-    void info_write(final String t_city, final int c_id) {
+
+    void create_travel(final String u_id, final String t_title, final String t_city, final String t_start, final String t_finish,final int c_num){
         new Thread(new Runnable() {
             @Override
             public void run() {
                 RestAdapter restAdapter = new RestAdapter.Builder().setEndpoint("http://203.252.182.94/yeoboH.php").build();
                 Retrofit retrofit = restAdapter.create(Retrofit.class);
-                retrofit.info_write(5, t_city, c_id, new Callback<JsonObject>() {
-
-                    @Override
-                    public void success(JsonObject jsonObject, Response response) {
-                        JsonArray result = jsonObject.getAsJsonArray("result");
-                        String errorCode = ((JsonObject) result.get(0)).get("errorCode").getAsString();
-                        if (errorCode.equals("success")) {
-                            Toast.makeText(getApplicationContext(), "성공적으로 등록 되었습니다.", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-
-                    @Override
-                    public void failure(RetrofitError error) {
-                        Log.d("test", error.toString());
-                    }
-                });
-            }
-        }).start();
-    }
-
-    void create_travel(final String u_id, final String t_title, final String t_city, final String t_start, final String t_finish){
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                RestAdapter restAdapter = new RestAdapter.Builder().setEndpoint("http://203.252.182.94/yeobo.php").build();
-                Retrofit retrofit = restAdapter.create(Retrofit.class);
-                retrofit.create_travel(4,u_id, t_title, t_city, t_start, t_finish, new Callback<JsonObject>() {
+                retrofit.create_travel(4,u_id, t_city, t_title, t_start, t_finish,c_num, new Callback<JsonObject>() {
                     @Override
                     public void success(JsonObject jsonObject, Response response) {
                         JsonArray result = jsonObject.getAsJsonArray("result");
@@ -223,7 +217,6 @@ public class AddActivity extends Activity {
         super.onBackPressed();
         AddActivity.this.finish();
     }
-
 
 
 
