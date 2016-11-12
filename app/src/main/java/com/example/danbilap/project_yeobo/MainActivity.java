@@ -68,6 +68,8 @@ public class MainActivity extends AppCompatActivity
     String sharedDescription;
     String sharedTitle;
     int travel_number;
+    private BackPressCloseSystem backPressCloseSystem;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,8 +77,10 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Intent i = getIntent();
         u_id = i.getStringExtra("id");
+        show_travel(u_id);
         url = i.getStringExtra("url");
         short_url = shorten.getShortenUrl(url);
+        backPressCloseSystem = new BackPressCloseSystem(this);
 
 
         init();
@@ -116,7 +120,7 @@ public class MainActivity extends AppCompatActivity
         gridView1 = (GridView) findViewById(R.id.gridView1);
 
 
-        show_travel(u_id);
+
 
         gridAdapter = new GridAdapter(this, R.layout.gridview1_item, background, t_arr);
         // 커스텀 어댑터를 GridView 에 적용
@@ -243,12 +247,7 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
+        backPressCloseSystem.onBackPressed();
     }
 
     @Override
