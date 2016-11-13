@@ -125,6 +125,7 @@ public class MainActivity extends AppCompatActivity
         gridAdapter = new GridAdapter(this, R.layout.gridview1_item, background, t_arr);
         // 커스텀 어댑터를 GridView 에 적용
         gridView1.setAdapter(gridAdapter);
+
         // 클릭하면 뷰페이저로 넘어감
         gridView1.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -246,11 +247,22 @@ public class MainActivity extends AppCompatActivity
         }).start();
     }
 
-
+/*
     @Override
     public void onBackPressed() {
+        @Override
+            //       super.onBackPressed();
+//        SecondActivity.this.finish();
+            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+            if (drawer.isDrawerOpen(GravityCompat.START)) {
+                drawer.closeDrawer(GravityCompat.START);
+            }
+            else {
+                super.onBackPressed();
+            }
+        }
         backPressCloseSystem.onBackPressed();
-    }
+    }*/
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

@@ -2,31 +2,22 @@ package com.example.danbilap.project_yeobo;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
-
-import retrofit.Callback;
-import retrofit.RestAdapter;
-import retrofit.RetrofitError;
-import retrofit.client.Response;
-
 public class TestFragment2 extends Fragment {
 
-    TextView info_nation, nation_name_en;
+    TextView info_nation, nation_name_en,tv;
     int n_id;
 
-    public static TestFragment2 newInstance(int n_id){
-        TestFragment2 instance = new TestFragment2();
-        instance.n_id = n_id;
-        ////
-        return instance;
-    }
+//    public static TestFragment2 newInstance(int n_id){
+//        TestFragment2 instance = new TestFragment2();
+//        instance.n_id = n_id;
+//        ////
+//        return instance;
+//    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -34,6 +25,8 @@ public class TestFragment2 extends Fragment {
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_test_2, container, false);
         info_nation = (TextView)rootView.findViewById(R.id.info_nation);
         nation_name_en = (TextView)rootView.findViewById(R.id.nation_name_en);
+        tv=(TextView)rootView.findViewById(R.id.tv);
+       // tv.setText(""+n_id);
 
      //   info_nation(n_id); // n_id는 도착 완료 상태
 

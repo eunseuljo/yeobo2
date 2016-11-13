@@ -20,9 +20,10 @@ import java.util.ArrayList;
 public class SecondActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    String t_title, id, url, image;
-    int t_num;
-    TextView title;
+    String t_title, id, url,image;
+
+    int t_num,c_num;
+    TextView title,tv;
 
 
     @Override
@@ -46,6 +47,13 @@ public class SecondActivity extends AppCompatActivity
         t_num = bundle.getInt("t_num");
         id = bundle.getString("u_id");
         url = bundle.getString("url");
+        c_num=bundle.getInt("c_num");
+
+        if(c_num>=9){
+            c_num=c_num+22;
+        }
+
+
 //        image=bundle.getString("imgurl");
         if (url != null) {
             // saveUrl(url,t_num);
@@ -67,9 +75,9 @@ public class SecondActivity extends AppCompatActivity
 
         ArrayList<Fragment> fragmentArrayList = new ArrayList<>();
         fragmentArrayList.add(new TestFragment1());
-        fragmentArrayList.add(TestFragment2.newInstance(1));
+        fragmentArrayList.add(new TestFragment2());
         fragmentArrayList.add(new TestFragment3());
-        fragmentArrayList.add(new TestFragment4());
+        fragmentArrayList.add(TestFragment4.newInstance(c_num));
 
 
         TestViewPagerAdapter adapter = new TestViewPagerAdapter(getSupportFragmentManager(), fragmentArrayList);
