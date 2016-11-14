@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items>
+    <item>
+        <code>1</code>
+        <name>Seoul</name>
+        <rnum>1</rnum>
+        <addr>http://www.kma.go.kr/wid/queryDFSRSS.jsp?zone=1114055000</addr>
+    </item>
+    <item>
+        <code>2</code>
+        <name>Incheon</name>
+        <rnum>2</rnum>
+        <addr>http://www.kma.go.kr/wid/queryDFSRSS.jsp?zone=2820051000</addr>
+
+    </item>
+    <item>
+        <code>3</code>
+        <name>Daejeon</name>
+        <rnum>3</rnum>
+        <addr>http://www.kma.go.kr/wid/queryDFSRSS.jsp?zone=3017063000</addr>
+
+    </item>
+    <item>
+        <code>4</code>
+        <name>Daegu</name>
+        <rnum>4</rnum>
+        <addr>http://www.kma.go.kr/wid/queryDFSRSS.jsp?zone=2711051700</addr>
+
+    </item>
+    <item>
+        <code>5</code>
+        <name>Gwangju</name>
+        <rnum>5</rnum>
+        <addr>http://www.kma.go.kr/wid/queryDFSRSS.jsp?zone=2914074500</addr>
+
+    </item>
+    <item>
+        <code>6</code>
+        <name>Busan</name>
+        <rnum>6</rnum>
+        <addr>http://www.kma.go.kr/wid/queryDFSRSS.jsp?zone=2647066000</addr>
+
+    </item>
+    <item>
+        <code>7</code>
+        <name>Ulsan</name>
+        <rnum>7</rnum>
+        <addr>http://www.kma.go.kr/wid/queryDFSRSS.jsp?zone=3114051000</addr>
+
+    </item>
+    <item>
+        <code>8</code>
+        <name>Sejong</name>
+        <rnum>8</rnum>
+        <addr>http://www.kma.go.kr/wid/queryDFSRSS.jsp?zone=3611034000</addr>
+
+    </item>
+    <item>
+        <code>31</code>
+        <name>Gyeonggi-do</name>
+        <rnum>9</rnum>
+        <addr>http://www.kma.go.kr/wid/queryDFSRSS.jsp?zone=4111566000</addr>
+
+    </item>
+    <item>
+        <code>32</code>
+        <name>Gangwon-do</name>
+        <rnum>10</rnum>
+        <addr>http://www.kma.go.kr/wid/queryDFSRSS.jsp?zone=4211058000</addr>
+
+    </item>
+    <item>
+        <code>33</code>
+        <name>Chungcheongbuk-do</name>
+        <rnum>11</rnum>
+        <addr>http://www.kma.go.kr/wid/queryDFSRSS.jsp?zone=4311154500</addr>
+
+    </item>
+    <item>
+        <code>34</code>
+        <name>Chungcheongnam-do</name>
+        <rnum>12</rnum>
+        <addr>http://www.kma.go.kr/wid/queryDFSRSS.jsp?zone=4480031000</addr>
+
+    </item>
+    <item>
+        <code>35</code>
+        <name>Gyeongsangbuk-do</name>
+        <rnum>13</rnum>
+        <addr>http://www.kma.go.kr/wid/queryDFSRSS.jsp?zone=4717034000</addr>
+
+    </item>
+    <item>
+        <code>36</code>
+        <name>Gyeongsangnam-do</name>
+        <rnum>14</rnum>
+        <addr>http://www.kma.go.kr/wid/queryDFSRSS.jsp?zone=4812155000</addr>
+
+    </item>
+    <item>
+        <code>37</code>
+        <name>Jeollabuk-do</name>
+        <rnum>15</rnum>
+        <addr>http://www.kma.go.kr/wid/queryDFSRSS.jsp?zone=4511171400</addr>
+
+    </item>
+    <item>
+        <code>38</code>
+        <name>Jeollanam-do</name>
+        <rnum>16</rnum>
+        <addr>http://www.kma.go.kr/wid/queryDFSRSS.jsp?zone=4684025600</addr>
+
+    </item>
+    <item>
+        <code>39</code>
+        <name>Jeju-do</name>
+        <rnum>17</rnum>
+        <addr>http://www.kma.go.kr/wid/queryDFSRSS.jsp?zone=5011065000</addr>
+
+    </item>
+</items>

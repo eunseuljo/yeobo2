@@ -2,20 +2,14 @@ package com.example.danbilap.project_yeobo;
 
 import android.app.Activity;
 import android.app.DatePickerDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.telephony.TelephonyManager;
-import android.text.Html;
-import android.text.Spanned;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -26,19 +20,13 @@ import android.widget.Toast;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
-import org.xmlpull.v1.XmlPullParser;
-import org.xmlpull.v1.XmlPullParserFactory;
-
-import java.net.URL;
 import java.util.ArrayList;
-import java.util.UUID;
+import java.util.Calendar;
 
 import retrofit.Callback;
 import retrofit.RestAdapter;
 import retrofit.RetrofitError;
 import retrofit.client.Response;
-
-import static android.widget.AdapterView.OnItemSelectedListener;
 
 public class AddActivity extends Activity {
 
@@ -57,6 +45,11 @@ public class AddActivity extends Activity {
     String t_title, t_city, c_id, t_start, t_finish,id;
     int num;
 
+    Calendar calendar = Calendar.getInstance();
+    // 년도 구하기
+    int year = calendar.get(Calendar.YEAR);
+    int month = calendar.get(Calendar.MONTH);
+    int date = calendar.get(Calendar.DAY_OF_MONTH);
 
     //    InformationSearchTask informationSearchTask;
 //    ContactSearchTask contactSearchTask;
@@ -93,7 +86,8 @@ public class AddActivity extends Activity {
                 new AdapterView.OnItemSelectedListener(){
                     @Override
                     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                    num=i;
+                        ((TextView)adapterView.getChildAt(0)).setTextColor(Color.rgb(215, 215, 215));
+                        num=i;
                     }
 
                     @Override
@@ -122,7 +116,7 @@ public class AddActivity extends Activity {
 
 
                     }
-                }, 2016, 0, 1); // month는 -1한 값으로 지정
+                }, year, month, date); // month는 -1한 값으로 지정
                 datePickerDialog.show();
             }
         });
@@ -142,7 +136,7 @@ public class AddActivity extends Activity {
                         end.setTextColor(Color.BLACK);
 
                     }
-                }, 2016, 0, 1); // month는 -1한 값으로 지정
+                }, year, month, date); // month는 -1한 값으로 지정
                 datePickerDialog.show();
             }
         });
