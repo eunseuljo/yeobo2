@@ -46,6 +46,7 @@
         <activity android:name=".AddActivity"> </activity>
         <activity android:name=".Side_1"></activity>
         <activity android:name=".Password"></activity>
+        <activity android:name=".Tour_info"></activity>
     </application>
 
 </manifest>

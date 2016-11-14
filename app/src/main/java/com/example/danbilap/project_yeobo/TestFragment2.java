@@ -2,31 +2,16 @@ package com.example.danbilap.project_yeobo;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
-
-import retrofit.Callback;
-import retrofit.RestAdapter;
-import retrofit.RetrofitError;
-import retrofit.client.Response;
 
 public class TestFragment2 extends Fragment {
 
     TextView info_nation, nation_name_en;
     int n_id;
 
-    public static TestFragment2 newInstance(int n_id){
-        TestFragment2 instance = new TestFragment2();
-        instance.n_id = n_id;
-        ////
-        return instance;
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

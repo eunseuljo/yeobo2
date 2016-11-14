@@ -36,7 +36,7 @@
                     android:textSize="18dp"
                     android:textColor="@color/white"
                     android:textStyle="bold"
-                    android:text="여행 프로필"/>
+                    android:text="Trip Profile"/>
 
             </LinearLayout>
 
@@ -55,7 +55,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:text="여행 제목"/>
+            android:text="Trip Title"/>
 
         <EditText
             android:background="@drawable/xml_border_gray"
@@ -64,7 +64,7 @@
             android:layout_width="250dp"
             android:layout_height="50dp"
             android:textAlignment="center"
-            android:hint="제목을 입력해주세요"
+            android:hint="Enter the Title"
             android:textColorHint="@color/gray"
             android:textColor="@color/black"
             android:textSize="15dp"
@@ -75,7 +75,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:text="여행 국가"/>
+            android:text="Trip City"/>
 
         <Spinner
             android:id="@+id/spinner1"
@@ -83,6 +83,8 @@
             android:layout_height="50dp"
             android:spinnerMode="dialog"
             android:background="@drawable/xml_border_gray"
+            android:textColor="@color/gray"
+            android:textAlignment="center"
             android:layout_marginBottom="30dp">
         </Spinner>
 
@@ -91,7 +93,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:text="여행 날짜"/>
+            android:text="Trip Date"/>
 
         <LinearLayout
             android:orientation="horizontal"
@@ -113,7 +115,7 @@
                 android:id="@+id/start"
                 android:layout_width="180dp"
                 android:layout_height="48dp"
-                android:text=" 시작일 "
+                android:text=" Start Date "
                 android:textColor="@color/gray"
                 android:textSize="15dp"/>
 
@@ -139,7 +141,7 @@
                 android:id="@+id/end"
                 android:layout_width="180dp"
                 android:layout_height="48dp"
-                android:text=" 종료일 "
+                android:text=" End Date "
                 android:textColor="@color/gray"
                 android:textSize="15dp" />
 
@@ -149,7 +151,7 @@
             android:id="@+id/btn1"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:text=" 완료 "
+            android:text=" Submit "
             android:background="@color/main"
             android:textColor="@color/white"
             android:textSize="15dp"

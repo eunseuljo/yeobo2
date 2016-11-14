@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="0dp"
+    android:paddingLeft="0dp"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="0dp"
+    android:layout_margin="0dp"
+    tools:context="com.example.danbilap.project_peace.MainActivity">
+
+    <ImageView
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="0dp"
+        android:paddingLeft="0dp"
+        android:id="@+id/t_img"
+        android:layout_width="160dp"
+        android:scaleType="fitStart"
+        android:layout_height="110dp" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center">
+    <TextView
+        android:id="@+id/title_travel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16dp"
+
+        android:textStyle="bold"
+        android:text="여행이름" />
+
+
+        <TextView
+            android:id="@+id/addr_travel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="11dp"
+
+            android:text="여행주소" />
+
+
+
+        <TextView
+            android:id="@+id/tel_travel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="11dp"
+
+            android:text="여행전번호" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -46,6 +46,9 @@ public class SecondActivity extends AppCompatActivity
         t_num = bundle.getInt("t_num");
         id = bundle.getString("u_id");
         url = bundle.getString("url");
+         int c_num=bundle.getInt("c_num");
+        if(c_num>=9)
+            c_num=c_num+22;
 //        image=bundle.getString("imgurl");
         if (url != null) {
             // saveUrl(url,t_num);
@@ -67,9 +70,9 @@ public class SecondActivity extends AppCompatActivity
 
         ArrayList<Fragment> fragmentArrayList = new ArrayList<>();
         fragmentArrayList.add(new TestFragment1());
-        fragmentArrayList.add(TestFragment2.newInstance(1));
+        fragmentArrayList.add(new TestFragment2());
         fragmentArrayList.add(new TestFragment3());
-        fragmentArrayList.add(new TestFragment4());
+        fragmentArrayList.add(TestFragment4.newInstance(c_num));
 
 
         TestViewPagerAdapter adapter = new TestViewPagerAdapter(getSupportFragmentManager(), fragmentArrayList);
@@ -105,6 +108,18 @@ public class SecondActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+    @Override
+    public void onBackPressed() { // 뒤로 가기 했을 때 MainActivity로 돌아가도록
+        //       super.onBackPressed();
+//        SecondActivity.this.finish();
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        }
+        else {
+            super.onBackPressed();
+        }
     }
 }
   /*  public void saveUrl(final String share_url,final int t_num){

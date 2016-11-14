@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="spinnerArray">
-        <item>[Choice]</item>
+        <item>Choice</item>
         <item>Seoul</item>
         <item>Incheon</item>
         <item>Daejeon</item>
