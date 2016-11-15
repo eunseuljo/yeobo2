@@ -1,5 +1,9 @@
 package com.example.danbilap.project_yeobo;
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> d38fb5ca352d4784be3429f867999aaae2ad5d8a
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -140,8 +144,13 @@ public class TestFragment4 extends Fragment {
                         }
                     }
                 }
+<<<<<<< HEAD
 
 
+=======
+
+
+>>>>>>> d38fb5ca352d4784be3429f867999aaae2ad5d8a
                 else if(eventType==XmlPullParser.END_TAG){
                     ;
                 }
@@ -152,7 +161,11 @@ public class TestFragment4 extends Fragment {
         }
         return real_addr;
     }
+<<<<<<< HEAD
 //xml파싱
+=======
+    //xml파싱
+>>>>>>> d38fb5ca352d4784be3429f867999aaae2ad5d8a
     public class DownloadWebPageTask extends AsyncTask<String, Integer, String> {//원래는 integer아니고 void였음.데이터타입에따라
         @Override
         protected void onPreExecute() {
@@ -182,6 +195,7 @@ public class TestFragment4 extends Fragment {
             m_pdlg.setProgress(values[0]);//처음값
         }
 
+<<<<<<< HEAD
     @Override
     protected void onPostExecute(String result) {//작업이 끝난후
         //   tv.append(result+"\n");
@@ -283,6 +297,109 @@ public class TestFragment4 extends Fragment {
 
         m_pdlg.dismiss();//ProgressDialog를 없애는것
     }
+=======
+        @Override
+        protected void onPostExecute(String result) {//작업이 끝난후
+            //   tv.append(result+"\n");
+            String word ="";
+            int pt_start=-1;
+            int pt_end=-1;
+
+            //1.현재온도(섭씨) 2.현재온도(화씨)
+            String tag_start="<temp>";
+            String tag_end="</temp>";
+            pt_start=result.indexOf(tag_start);
+            if(pt_start != -1){
+                pt_end = result.indexOf(tag_end);
+                if(pt_end!= -1){
+                    word = result.substring(pt_start+tag_start.length(), pt_end);
+                    double word2 = Double.parseDouble(word);
+                    int cel=(int)word2;
+                    int cel2=(int)(word2*1.8)+32;//섭씨->화씨
+
+                    degree1.setText(""+cel);//1.섭씨
+                    degree2.setText(""+cel2);//2.화씨
+                }else
+                    degree1.setText("데이터가 없습니다.");
+            }else
+                degree1.setText("데이터가 없습니다.");
+
+            //3.최고온도
+            tag_start="<tmx>";
+            tag_end="</tmx>";
+            pt_start=result.indexOf(tag_start);
+            if(pt_start != -1){
+                pt_end = result.indexOf(tag_end);
+                if(pt_end!= -1){
+                    word = result.substring(pt_start+tag_start.length(), pt_end);
+                    double word2 = Double.parseDouble(word);
+                    if(word2==-999.0)
+                        high.setText("-");//3.최고온도
+                    else {
+                        word2 = Double.parseDouble(word);
+                        int h = (int) word2;
+                        high.setText(""+h);//3.최고온도
+                    }
+                }else
+                    high.setText("데이터가 없습니다.");
+            }else
+                high.setText("데이터가 없습니다.");
+
+
+            //4.최저온도
+            tag_start="<tmn>";
+            tag_end="</tmn>";
+            pt_start=result.indexOf(tag_start);
+            if(pt_start != -1){
+                pt_end = result.indexOf(tag_end);
+                if(pt_end!= -1){
+                    word = result.substring(pt_start+tag_start.length(), pt_end);
+                    double word2 = Double.parseDouble(word);
+                    if(word2==-999.0)
+                        low.setText("-");//4.최저온도
+                    else {
+                        word2 = Double.parseDouble(word);
+                        int l = (int) word2;
+                        low.setText(""+l);//4.최저온도
+                    }
+                }else
+                    low.setText("데이터가 없습니다.");
+            }else
+                low.setText("데이터가 없습니다.");
+
+            //5.상태
+            tag_start="<wfEn>";
+            tag_end="</wfEn>";
+            pt_start=result.indexOf(tag_start);
+            if(pt_start != -1){
+                pt_end = result.indexOf(tag_end);
+                if(pt_end!= -1){
+                    word = result.substring(pt_start+tag_start.length(), pt_end);
+                    // state.setText(word);//5.상태
+                    if(word.equals("Clear")){
+                        img.setImageResource(R.drawable.w1);
+                    }
+                    if(word.equals("Partly Cloudy")||word.equals("Mostly Cloudy")){
+                        img.setImageResource(R.drawable.w2);
+                    }
+                    if(word.equals("Cloudy")){
+                        img.setImageResource(R.drawable.w4);
+                    }
+                    if(word.equals("Rain")){
+                        img.setImageResource(R.drawable.w5);
+                    }
+                    if(word.equals("Snow")){
+                        img.setImageResource(R.drawable.w6);
+                    }
+                }else
+                    state.setText("데이터가 없습니다.");
+            }else
+                state.setText("데이터가 없습니다.");
+
+
+            m_pdlg.dismiss();//ProgressDialog를 없애는것
+        }
+>>>>>>> d38fb5ca352d4784be3429f867999aaae2ad5d8a
 
         private String downloadUrl(String myurl) throws IOException{
             HttpURLConnection conn = null;

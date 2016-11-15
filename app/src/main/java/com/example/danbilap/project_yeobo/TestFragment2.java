@@ -12,12 +12,15 @@ public class TestFragment2 extends Fragment {
     TextView info_nation, nation_name_en,tv;
     int n_id;
 
+<<<<<<< HEAD
 //    public static TestFragment2 newInstance(int n_id){
 //        TestFragment2 instance = new TestFragment2();
 //        instance.n_id = n_id;
 //        ////
 //        return instance;
 //    }
+=======
+>>>>>>> d38fb5ca352d4784be3429f867999aaae2ad5d8a
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

@@ -11,17 +11,23 @@
     tools:context="com.example.jo_eunseul.project12.MainActivity"
     android:background="#f4f4f4">
 
+<<<<<<< HEAD
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+=======
+>>>>>>> d38fb5ca352d4784be3429f867999aaae2ad5d8a
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+<<<<<<< HEAD
 
 
 
 
+=======
+>>>>>>> d38fb5ca352d4784be3429f867999aaae2ad5d8a
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
@@ -176,28 +182,55 @@
                 android:background="#ffffff"
                 android:paddingLeft="10dp"
                 android:text="Infomation"
+<<<<<<< HEAD
               />
+=======
+                android:layout_marginBottom="1dp"
+                />
+>>>>>>> d38fb5ca352d4784be3429f867999aaae2ad5d8a
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+<<<<<<< HEAD
+=======
+                android:layout_marginBottom="1dp"
+>>>>>>> d38fb5ca352d4784be3429f867999aaae2ad5d8a
                 >
 
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="110dp"
                     android:id="@+id/btn1"
+<<<<<<< HEAD
                     android:background="@drawable/xml_border_gray2"
                     android:layout_weight="1"
                     android:text="관 광 정 보 1"/>
+=======
+                    android:layout_weight="1"
+                    android:background="#ffffff"
+
+                    android:text="관 광 정 보 1"
+                    android:layout_marginRight="1dp"
+                    />
+>>>>>>> d38fb5ca352d4784be3429f867999aaae2ad5d8a
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="110dp"
                     android:id="@+id/btn2"
+<<<<<<< HEAD
                     android:background="@drawable/xml_border_gray2"
                     android:layout_weight="1"
                     android:text="관 광 정 보 2"/>
             </LinearLayout>
+=======
+                    android:layout_weight="1"
+                    android:background="#ffffff"
+
+                    android:text="관 광 정 보 2"/>
+            </LinearLayout>
+
+>>>>>>> d38fb5ca352d4784be3429f867999aaae2ad5d8a
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
@@ -207,13 +240,22 @@
                     android:layout_width="match_parent"
                     android:layout_height="110dp"
                     android:id="@+id/btn3"
+<<<<<<< HEAD
                     android:background="@drawable/xml_border_gray2"
                     android:layout_weight="1"
+=======
+                    android:layout_weight="1"
+                    android:background="#ffffff"
+                    android:layout_marginRight="1dp"
+
+
+>>>>>>> d38fb5ca352d4784be3429f867999aaae2ad5d8a
                     android:text="레 져 스 포 츠"/>
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="110dp"
                     android:id="@+id/btn4"
+<<<<<<< HEAD
                     android:background="@drawable/xml_border_gray2"
                     android:layout_weight="1"
                     android:text="쇼 핑"/>
@@ -229,5 +271,15 @@
             <!--android:layout_height="wrap_content" />-->
         </LinearLayout>
     </ScrollView>
+=======
+                    android:background="#ffffff"
+
+                    android:layout_weight="1"
+                    android:text="쇼 핑"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+>>>>>>> d38fb5ca352d4784be3429f867999aaae2ad5d8a
 
 </LinearLayout>

@@ -90,7 +90,11 @@ public class Tour_info extends AppCompatActivity {
         i_arr = new ArrayList<info>();
         listView1 = (ListView) findViewById(R.id.listview1);
         listAdapter=new com.example.danbilap.project_yeobo.ListAdapter(this,R.layout.listview1_item,i_arr);
+<<<<<<< HEAD
        // listAdapter =new com.example.jo_eunseul.project12.ListAdapter(this,R.layout.listview1_item,i_arr);
+=======
+      //  listAdapter =new com.example.jo_eunseul.project12.ListAdapter(this,R.layout.listview1_item,i_arr);
+>>>>>>> d38fb5ca352d4784be3429f867999aaae2ad5d8a
         listView1.setAdapter(listAdapter);
 
         info i =new info( "String title", "String addr", "String tel", "http://tong.visitkorea.or.kr/cms/resource/85/1876185_image2_1.jpg", "String img2");

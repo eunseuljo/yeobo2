@@ -250,6 +250,7 @@ public class MainActivity extends AppCompatActivity
 /*
     @Override
     public void onBackPressed() {
+<<<<<<< HEAD
         @Override
             //       super.onBackPressed();
 //        SecondActivity.this.finish();
@@ -261,6 +262,16 @@ public class MainActivity extends AppCompatActivity
                 super.onBackPressed();
             }
         }
+=======
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        }
+        else {
+            super.onBackPressed();
+        }
+
+>>>>>>> d38fb5ca352d4784be3429f867999aaae2ad5d8a
         backPressCloseSystem.onBackPressed();
     }*/
 
