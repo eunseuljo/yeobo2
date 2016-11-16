@@ -54,18 +54,20 @@ class GridAdapter extends BaseAdapter {
         if (convertView == null)
             convertView = inf.inflate(layout, null);
 
-        convertView.setBackgroundResource(background[position % 3]);
-
-
         Travel t = t_arr.get(position);
+        convertView.setBackgroundResource(background[t.c_num-1]);
+
+
+
         TextView title_travel = (TextView)convertView.findViewById(R.id.title_travel);
         title_travel.setText(t.t_title);
         TextView start_date = (TextView)convertView.findViewById(R.id.start_date);
         start_date.setText(t.t_start);
         TextView end_date = (TextView)convertView.findViewById(R.id.end_date);
         end_date.setText(t.t_end);
-        ImageView flag = (ImageView)convertView.findViewById(R.id.flag);
-        flag.setImageResource(t.t_flag);
+
+        TextView travel_city = (TextView)convertView.findViewById(R.id.travel_city);
+        travel_city.setText(t.t_city);
 
         return convertView;
     }

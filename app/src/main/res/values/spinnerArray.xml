@@ -1,23 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="spinnerArray">
-        <item>Choice</item>
         <item>Seoul</item>
-        <item>Incheon</item>
-        <item>Daejeon</item>
-        <item>Daegu</item>
-        <item>Gwangju</item>
-        <item>Busan</item>
-        <item>Ulsan</item>
-        <item>Sejong</item>
-        <item>Gyeonggi-do</item>
-        <item>Gangwon-do</item>
-        <item>Chungcheongbuk-do</item>
-        <item>Chungcheongnam-do</item>
-        <item>Gyeongsangbuk-do</item>
-        <item>Gyeongsangnam-do</item>
-        <item>Jeollabuk-do</item>
-        <item>Jeollanam-do</item>
+        <item>In cheon</item>
+        <item>Dae jeon</item>
+        <item>Dae gu</item>
+        <item>Gwang ju</item>
+        <item>Bu san</item>
+        <item>Ul san</item>
+        <item>Se jong</item>
+        <item>Gyeong gi-do</item>
+        <item>Gang won-do</item>
+        <item>Chung cheong buk-do</item>
+        <item>Chung cheong nam-do</item>
+        <item>Gyeong sang buk-do</item>
+        <item>Gyeong sang nam-do</item>
+        <item>Jeol la buk-do</item>
+        <item>Jeol la nam-do</item>
         <item>Jeju</item>
 
 

@@ -13,9 +13,9 @@
 
     <ImageView
         android:layout_marginBottom="15dp"
-        android:src="@drawable/yeobo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:src="@drawable/ic"
+        android:layout_width="169dp"
+        android:layout_height="249dp" />
 
     <LinearLayout
         android:orientation="horizontal"

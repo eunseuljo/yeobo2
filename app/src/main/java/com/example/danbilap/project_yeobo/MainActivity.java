@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity
 
     // 해당 여행 나라의 국기 이미지
     ArrayList<Travel> t_arr;
-    int[] background = {R.drawable.sample1, R.drawable.sample2, R.drawable.sample3};
+    int[] background = { R.drawable.a,R.drawable.b,R.drawable.c,R.drawable.d,R.drawable.e,R.drawable.f,R.drawable.g,R.drawable.h,R.drawable.i,R.drawable.j,R.drawable.k,R.drawable.l,R.drawable.m,R.drawable.n,R.drawable.o,R.drawable.p,R.drawable.q,R.drawable.q};
 
     // 각 여행마다 보여주어야할 것들
     TextView title_travel, start_date, end_date;
@@ -231,12 +231,13 @@ public class MainActivity extends AppCompatActivity
                         for (int i = 0; i < result.size(); i++) {
                             JsonObject obj = (JsonObject) result.get(i);
                             int t_num = obj.get("travel_number").getAsInt();
+                            String t_city = obj.get("travel_city").getAsString();
                             String t_start = obj.get("travel_start").getAsString();
                             String t_finish = obj.get("travel_finish").getAsString();
                             String t_title = obj.get("travel_title").getAsString();
                             int c_num=obj.get("city_num").getAsInt();
                             // 국기 이미지 가져와야함
-                            Travel t = new Travel(R.drawable.united_states_of_america, t_num, t_title, t_start, t_finish, u_id, short_url,c_num);
+                            Travel t = new Travel(t_num, t_city,t_title, t_start, t_finish, u_id, short_url,c_num);
 
 
                             t_arr.add(t);
@@ -404,10 +405,12 @@ public class MainActivity extends AppCompatActivity
                 int a=travel_number;
                 String b=share_Url;
                 String c=share_ImageUrl;
-                String d=share_description.substring(100);
+                String d="";
+                if(share_description!=null){d=share_description.substring(100);}
+
                 String e=share_title;
                 int f=c_num;
-                retrofit.share_write(0,a,b,c,d,e,f,new Callback<JsonObject>(){
+                retrofit.share_write(0,a,b,c,d,e,f,0,new Callback<JsonObject>(){
                     @Override
                     public void success(JsonObject jsonObject, Response response) {
                         JsonArray result = jsonObject.getAsJsonArray("result");
@@ -425,55 +428,6 @@ public class MainActivity extends AppCompatActivity
             }
         }).start();
 
-
-
-    }
-    void share(final int travel_number, final String share_Url, final String share_ImageUrl, final String share_description, final String share_title,final int c_num){
-
-        HttpURLConnection conn = null;
-
-        try {
-            URL url = new URL("http://203.252.182.94/yeoboH.php"); //요청 URL을 입력
-            conn = (HttpURLConnection) url.openConnection();
-            conn.setRequestMethod("POST"); //요청 방식을 설정 (default : GET)
-
-            conn.setDoInput(true); //input을 사용하도록 설정 (default : true)
-            conn.setDoOutput(true); //output을 사용하도록 설정 (default : false)
-
-            conn.setConnectTimeout(60); //타임아웃 시간 설정 (default : 무한대기)
-
-            OutputStream os = conn.getOutputStream();
-            BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(os, "UTF-8")); //캐릭터셋 설정
-
-            writer.write(
-                    "flag=0"+ "travel_number=" +travel_number
-                            + "share_Url="+share_Url+"share_ImageUrl="+share_ImageUrl+"share_description="+share_description+"share_title="+share_title+"c_num="+c_num); //요청 파라미터를 입력
-            writer.flush();
-            writer.close();
-            os.close();
-
-            conn.connect();
-
-            BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream(), "UTF-8")); //캐릭터셋 설정
-
-            StringBuilder sb = new StringBuilder();
-            String line = null;
-            while ((line = br.readLine()) != null) {
-                if(sb.length() > 0) {
-                    sb.append("\n");
-                }
-                sb.append(line);
-            }
-
-            System.out.println("result:" + sb.toString());
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            if(conn != null) {
-                conn.disconnect();
-            }
-        }
 
 
     }

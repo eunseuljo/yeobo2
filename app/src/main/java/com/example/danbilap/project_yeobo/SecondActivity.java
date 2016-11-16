@@ -66,6 +66,8 @@ public class SecondActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         //은슬
+
+        // Bind the tabs to the ViewPager
         ViewPager pager = (ViewPager) findViewById(R.id.pager);
 
         ArrayList<Fragment> fragmentArrayList = new ArrayList<>();
@@ -78,7 +80,6 @@ public class SecondActivity extends AppCompatActivity
         TestViewPagerAdapter adapter = new TestViewPagerAdapter(getSupportFragmentManager(), fragmentArrayList);
         pager.setAdapter(adapter);
 
-        // Bind the tabs to the ViewPager
         PagerSlidingTabStrip tabs = (PagerSlidingTabStrip) findViewById(R.id.tabs);
         tabs.setViewPager(pager);
 

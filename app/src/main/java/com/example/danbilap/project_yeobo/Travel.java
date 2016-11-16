@@ -6,6 +6,8 @@ public class Travel implements Parcelable {
     int t_flag;
     int t_id;
     String t_title;
+
+    String t_city;
     String t_start;
     String t_end;
     String u_id;
@@ -14,9 +16,10 @@ public class Travel implements Parcelable {
 
 //    String imgurl;
 
-    Travel(int flag, int t_id, String title,String start, String end,String u_id,String url,int c_num){
-        this.t_flag = flag;
+    Travel(int t_id, String t_city, String title,String start, String end,String u_id,String url,int c_num){
+
         this.t_id = t_id;
+        this.t_city=t_city;
         this.t_title = title;
         this.t_start = start;
         this.t_end = end;
@@ -27,10 +30,9 @@ public class Travel implements Parcelable {
     }
 
     protected Travel(Parcel in) {
-        t_flag = in.readInt();
         t_id = in.readInt();
         t_title = in.readString();
-
+        t_city = in.readString();
         t_start = in.readString();
         t_end = in.readString();
         u_id=in.readString();
@@ -51,9 +53,11 @@ public class Travel implements Parcelable {
         }
     };
 
-    public int getT_flag() { return t_flag; }
     public String getT_title(){
         return t_title;
+    }
+    public String getT_city(){
+        return t_city;
     }
     public String getT_start(){
         return t_start;
@@ -86,9 +90,9 @@ public class Travel implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(t_flag);
         dest.writeInt(t_id);
         dest.writeString(t_title);
+        dest.writeString(t_city);
         dest.writeString(t_start);
         dest.writeString(t_end);
         dest.writeString(u_id);
