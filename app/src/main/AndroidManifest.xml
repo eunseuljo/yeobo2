@@ -48,6 +48,7 @@
         <activity android:name=".Side_1"></activity>
         <activity android:name=".Password"></activity>
         <activity android:name=".Tour_info"></activity>
+        <activity android:name=".MemoActivity"></activity>
     </application>
 
 </manifest>

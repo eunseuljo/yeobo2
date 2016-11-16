@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity
     String short_url, short_image;
     String sharedDescription;
     String sharedTitle;
-    int travel_number;
+    int travel_number,c_num;
     private BackPressCloseSystem backPressCloseSystem;
 
 
@@ -139,8 +139,9 @@ public class MainActivity extends AppCompatActivity
                 bundle.putInt("c_num",t.getC_num());
                 //               bundle.putString("imgurl", t.getImgurl());
                 travel_number = t.getT_id();
-
+                c_num=t.getC_num();
             if(url!=null){
+
                 ShareTask shareTask = new ShareTask();
                 shareTask.execute(url);}
                 Intent intent = new Intent(MainActivity.this, SecondActivity.class);
@@ -333,6 +334,7 @@ public class MainActivity extends AppCompatActivity
             String page = "";
             try {
                 URL url = new URL(urls[0]);
+
                 conn = (HttpURLConnection) url.openConnection();
                 BufferedInputStream buf = new BufferedInputStream(conn.getInputStream());//바이트 단위로 데이터 저장
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(buf, "utf-8")); //텍스트 형태로 데이터 읽어들임.
@@ -393,18 +395,8 @@ public class MainActivity extends AppCompatActivity
 
 
 
-            if(sharedDescription==null || sharedTitle==null){ //for문 끝난 후에 제목과 부제목이 null인 상태이면.
-                //    sharedTitle = sharedText; //타이틀 부분에 공유하기를 통해 intent로 받아온 값 자체를 뿌려줌.
+                share_write(travel_number,url,imageUrl,sharedDescription,sharedTitle,c_num);
 
-            }
-
-            if(imageUrl==null){ //for문 끝난 후에도 imgUrl 널값이라면.
-
-            }
-            else{
-
-                share_write(travel_number,url,imageUrl,sharedDescription,sharedTitle);
-            }
 
 
         }//onPostExecute 함수
@@ -413,13 +405,13 @@ public class MainActivity extends AppCompatActivity
     }
 
     //DB에 값 저장.
-    void share_write(final int travel_number, final String share_Url, final String share_ImageUrl, final String share_description, final String share_title){
+    void share_write(final int travel_number, final String share_Url, final String share_ImageUrl, final String share_description, final String share_title,final int c_num){
         new Thread(new Runnable() {
             @Override
             public void run() {
                 RestAdapter restAdapter = new RestAdapter.Builder().setEndpoint("http://203.252.182.94/yeoboH.php").build();
                 Retrofit retrofit = restAdapter.create(Retrofit.class);
-                retrofit.share_write(0,travel_number,share_Url,share_ImageUrl,share_description,share_title, new Callback<JsonObject>() {
+                retrofit.share_write(0,travel_number,share_Url,share_ImageUrl,share_description,share_title,c_num, new Callback<JsonObject>() {
 
 
 

@@ -80,7 +80,7 @@ public class SecondActivity extends AppCompatActivity
         ViewPager pager = (ViewPager) findViewById(R.id.pager);
 
         ArrayList<Fragment> fragmentArrayList = new ArrayList<>();
-        fragmentArrayList.add(new TestFragment1());
+        fragmentArrayList.add(TestFragment1.newInstance(t_num, c_num));
         fragmentArrayList.add(new TestFragment2());
         fragmentArrayList.add(new TestFragment3());
         fragmentArrayList.add(TestFragment4.newInstance(c_num));

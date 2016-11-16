@@ -8,143 +8,27 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical"
-    tools:context="com.example.danbilap.project_yeobo.MainActivity">
+    tools:context="com.example.danbilap.project_yeobo.TestFragment1">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:text="기본템"/>
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="0px"
-        android:layout_weight="1"
-        android:layout_marginBottom="10dp"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content">
 
-        <Button
-            android:layout_width="0px"
-            android:layout_weight="1"
-            android:layout_height="match_parent"
-            android:background="@drawable/button"
-            android:layout_marginRight="20dp"
-            android:text="항공" />
-        <Button
-            android:layout_width="0px"
-            android:layout_weight="1"
-            android:layout_height="match_parent"
-            android:layout_marginRight="20dp"
-            android:background="@drawable/button"
-            android:text="교통" />
-        <Button
-            android:layout_width="0px"
-            android:layout_weight="1"
-            android:layout_height="match_parent"
-            android:background="@drawable/button"
-            android:text="숙박" />
-    </LinearLayout>
+        <ListView
+            android:id="@+id/listView"
+            android:focusable="false"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></ListView>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:text="Tips"/>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0px"
-        android:layout_weight="1"
-        android:layout_marginBottom="10dp"
-        android:orientation="horizontal">
-
-        <Button
-            android:layout_width="0px"
-            android:layout_weight="1"
-            android:layout_height="match_parent"
-            android:background="@drawable/button"
-            android:layout_marginRight="20dp"
-            android:text="관광지" />
-        <Button
-            android:id="@+id/shoppingButton"
-            android:layout_width="0px"
-            android:layout_weight="1"
-            android:layout_height="match_parent"
-            android:layout_marginRight="20dp"
-            android:background="@drawable/button"
-            android:text="쇼핑" />
-        <Button
-            android:id="@+id/mukbangButton"
-            android:layout_width="0px"
-            android:layout_weight="1"
-            android:layout_height="match_parent"
-            android:background="@drawable/button"
-            android:text="mukbang" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0px"
-        android:layout_weight="1"
-        android:layout_marginBottom="10dp"
-        android:orientation="horizontal">
-        <Button
-            android:layout_width="0px"
-            android:layout_weight="1"
-            android:layout_height="match_parent"
-            android:background="@drawable/button"
-            android:layout_marginRight="20dp"
-            android:text="투어" />
-        <Button
-            android:layout_width="0px"
-            android:layout_weight="1"
-            android:layout_height="match_parent"
-            android:layout_marginRight="20dp"
-            android:background="@drawable/button"
-            android:text="자연경관" />
-        <Button
-            android:layout_width="0px"
-            android:layout_weight="1"
-            android:layout_height="match_parent"
-            android:background="@drawable/button"
-            android:text="그 외" />
-    </LinearLayout>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:text="사전지식 쌓기"/>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0px"
-        android:layout_weight="1"
-        android:orientation="horizontal">
-
-        <Button
-            android:layout_width="0px"
-            android:layout_weight="1"
-            android:layout_height="match_parent"
-            android:background="@drawable/button"
-            android:layout_marginRight="20dp"
-            android:text="책" />
-        <Button
-            android:layout_width="0px"
-            android:layout_weight="1"
-            android:layout_height="match_parent"
-            android:layout_marginRight="20dp"
-            android:background="@drawable/button"
-            android:text="영화" />
-        <Button
-            android:layout_width="0px"
-            android:layout_weight="1"
-            android:layout_height="match_parent"
-            android:background="@drawable/button"
-            android:text="그 외" />
-    </LinearLayout>
+        <ImageButton
+            android:layout_gravity="bottom|right"
+            android:id="@+id/imageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/memo1" />
+    </FrameLayout>
 
 
 </LinearLayout>
