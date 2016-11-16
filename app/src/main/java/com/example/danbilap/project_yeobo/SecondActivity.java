@@ -70,7 +70,7 @@ public class SecondActivity extends AppCompatActivity
 
         ArrayList<Fragment> fragmentArrayList = new ArrayList<>();
         fragmentArrayList.add(TestFragment1.newInstance(t_num, c_num));
-        fragmentArrayList.add(new TestFragment2());
+        fragmentArrayList.add(TestFragment2.newInstance(t_num,c_num));
         fragmentArrayList.add(new TestFragment3());
         fragmentArrayList.add(TestFragment4.newInstance(c_num));
 

@@ -30,9 +30,8 @@
         >
         <ImageView
             android:layout_marginBottom="15dp"
-            android:src="@drawable/yeobo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_width="150dp"
+            android:layout_height="150dp" />
         <!--임의-->
 
         <android.support.design.widget.TextInputLayout
@@ -71,22 +70,7 @@
 
 
 
-        <Button
-            android:id="@+id/email_sign_in_button"
-            style="?android:textAppearanceSmall"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="Sign In"
-            android:textStyle="bold" />
-        <Button
-            android:id="@+id/join"
-            style="?android:textAppearanceSmall"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="7dp"
-            android:text="Sign Up"
-            android:textStyle="bold" />
+
 <LinearLayout
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
@@ -97,18 +81,29 @@
         android:layout_height="wrap_content"
         android:text="Remember me"
         android:id="@+id/checkBox"
-        android:layout_marginRight="120dp"/>
-    <Button
-        android:id="@+id/getPass"
-        style="?android:textAppearanceSmall"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Forgot Password?"
-        android:background="#ffffff"
-        android:textStyle="bold"
-        />
+        android:layout_marginRight="120dp"
+        android:textColor="#56bc94" />
 </LinearLayout>
+        <Button
+            android:id="@+id/email_sign_in_button"
+            style="?android:textAppearanceSmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Sign In"
+            android:textStyle="bold"
+            android:background="#56bc94"
+            android:textColor="#ffffff" />
+        <Button
+            android:id="@+id/join"
+            style="?android:textAppearanceSmall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:text="Sign Up"
+            android:textStyle="bold"
+            android:background="#56bc94"
+            android:textColor="#ffffff" />
 
     </LinearLayout>
 </LinearLayout>

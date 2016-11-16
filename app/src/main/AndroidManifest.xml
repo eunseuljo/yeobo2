@@ -48,6 +48,8 @@
         <activity android:name=".Password"></activity>
         <activity android:name=".Tour_info"></activity>
         <activity android:name=".MemoActivity"></activity>
+        <activity android:name=".WriteActivity"></activity>
+
     </application>
 
 </manifest>

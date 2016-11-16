@@ -6,7 +6,7 @@
     android:fitsSystemWindows="true"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="com.example.jo_eunseul.san_4peace.MainActivity">
+    tools:context="com.example.danbilap.project_yeobo.MainActivity">
 
 
     <android.support.design.widget.AppBarLayout

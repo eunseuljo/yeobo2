@@ -138,17 +138,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderManager.Lo
             }
         });
 
-        Button getPass = (Button) findViewById(R.id.getPass);
-        getPass.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent j = new Intent(LoginActivity.this,Password.class);
-                if(url!=null){
-                    j.putExtra("url",url);}
-                startActivity(j);
-                LoginActivity.this.finish();
-            }
-        });
 
         mProgressView = findViewById(R.id.login_progress);
 
