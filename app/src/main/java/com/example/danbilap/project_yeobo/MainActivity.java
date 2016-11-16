@@ -57,9 +57,6 @@ public class MainActivity extends AppCompatActivity
     ArrayList<Travel> t_arr;
     int[] background = { R.drawable.a,R.drawable.b,R.drawable.c,R.drawable.d,R.drawable.e,R.drawable.f,R.drawable.g,R.drawable.h,R.drawable.i,R.drawable.j,R.drawable.k,R.drawable.l,R.drawable.m,R.drawable.n,R.drawable.o,R.drawable.p,R.drawable.q,R.drawable.q};
 
-    // 각 여행마다 보여주어야할 것들
-    TextView title_travel, start_date, end_date;
-    ImageView flag;
 
     String u_id;
     String url;
@@ -69,7 +66,7 @@ public class MainActivity extends AppCompatActivity
     String imageUrl;
     String test[];
     ShortenUrlGoogle shorten = new ShortenUrlGoogle();
-    String short_url, short_image;
+    String short_url;
     String sharedDescription;
     String sharedTitle;
     int travel_number,c_num;
@@ -158,8 +155,6 @@ public class MainActivity extends AppCompatActivity
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, final int position, long id) {
                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MainActivity.this);
-
-                //alertDialogBuilder.setTitle("삭제");
 
                 alertDialogBuilder
                         .setMessage("삭제하시겠습니까?")
@@ -281,10 +276,6 @@ public class MainActivity extends AppCompatActivity
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-//        if (id == R.id.action_settings) {
-//            return true;
-//        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -295,11 +286,6 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-//        if (id == R.id.nav_camera) {
-//            Intent intent = new Intent(SecondActivity.this, Side_1.class);
-//            startActivity(intent);
-//            // Handle the camera action
-//        }
         if (id == R.id.nav_gallery) {
 
         } else if (id == R.id.nav_slideshow) {

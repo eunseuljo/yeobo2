@@ -14,8 +14,9 @@
     <ImageView
         android:layout_marginBottom="15dp"
         android:src="@drawable/ic"
-        android:layout_width="169dp"
-        android:layout_height="249dp" />
+        android:layout_width="236dp"
+        android:layout_height="249dp"
+        android:layout_weight="0.28" />
 
     <LinearLayout
         android:orientation="horizontal"
