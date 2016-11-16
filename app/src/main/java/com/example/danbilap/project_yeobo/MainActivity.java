@@ -25,14 +25,19 @@ import android.widget.Toast;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
+import org.apache.http.params.HttpConnectionParams;
+import org.apache.http.params.HttpParams;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
@@ -380,8 +385,8 @@ public class MainActivity extends AppCompatActivity
 
 
 
-                share_write(travel_number,url,imageUrl,sharedDescription,sharedTitle,c_num);
-
+              share_write(travel_number,url,imageUrl,sharedDescription,sharedTitle,c_num);
+                //share(travel_number,url,imageUrl,sharedDescription,sharedTitle,c_num);
 
 
         }//onPostExecute 함수
@@ -396,17 +401,19 @@ public class MainActivity extends AppCompatActivity
             public void run() {
                 RestAdapter restAdapter = new RestAdapter.Builder().setEndpoint("http://203.252.182.94/yeoboH.php").build();
                 Retrofit retrofit = restAdapter.create(Retrofit.class);
-                retrofit.share_write(0,travel_number,share_Url,share_ImageUrl,share_description,share_title,c_num, new Callback<JsonObject>() {
-
-
-
+                int a=travel_number;
+                String b=share_Url;
+                String c=share_ImageUrl;
+                String d=share_description.substring(100);
+                String e=share_title;
+                int f=c_num;
+                retrofit.share_write(0,a,b,c,d,e,f,new Callback<JsonObject>(){
                     @Override
                     public void success(JsonObject jsonObject, Response response) {
                         JsonArray result = jsonObject.getAsJsonArray("result");
                         String errorCode = ((JsonObject)result.get(0)).get("errorCode").getAsString();
                         if(errorCode.equals("success")){
-
-                            Toast.makeText(MainActivity.this, "성공적으로 등록 되었습니다.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this,errorCode, Toast.LENGTH_SHORT).show();
                         }
                     }
 
@@ -417,6 +424,56 @@ public class MainActivity extends AppCompatActivity
                 });
             }
         }).start();
+
+
+
+    }
+    void share(final int travel_number, final String share_Url, final String share_ImageUrl, final String share_description, final String share_title,final int c_num){
+
+        HttpURLConnection conn = null;
+
+        try {
+            URL url = new URL("http://203.252.182.94/yeoboH.php"); //요청 URL을 입력
+            conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestMethod("POST"); //요청 방식을 설정 (default : GET)
+
+            conn.setDoInput(true); //input을 사용하도록 설정 (default : true)
+            conn.setDoOutput(true); //output을 사용하도록 설정 (default : false)
+
+            conn.setConnectTimeout(60); //타임아웃 시간 설정 (default : 무한대기)
+
+            OutputStream os = conn.getOutputStream();
+            BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(os, "UTF-8")); //캐릭터셋 설정
+
+            writer.write(
+                    "flag=0"+ "travel_number=" +travel_number
+                            + "share_Url="+share_Url+"share_ImageUrl="+share_ImageUrl+"share_description="+share_description+"share_title="+share_title+"c_num="+c_num); //요청 파라미터를 입력
+            writer.flush();
+            writer.close();
+            os.close();
+
+            conn.connect();
+
+            BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream(), "UTF-8")); //캐릭터셋 설정
+
+            StringBuilder sb = new StringBuilder();
+            String line = null;
+            while ((line = br.readLine()) != null) {
+                if(sb.length() > 0) {
+                    sb.append("\n");
+                }
+                sb.append(line);
+            }
+
+            System.out.println("result:" + sb.toString());
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if(conn != null) {
+                conn.disconnect();
+            }
+        }
 
 
     }
