@@ -119,7 +119,10 @@ public class LoginActivity extends AppCompatActivity implements LoaderManager.Lo
         mEmailSignInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                login(email,password);
+
+
+
+
                 attemptLogin();
             }
         });
@@ -215,11 +218,11 @@ public class LoginActivity extends AppCompatActivity implements LoaderManager.Lo
             focusView = mEmailView;
             cancel = true;
         }else {
-            if(num==1){
+            login(email,password);
 
             }
         }
-    }
+
 
     private boolean isEmailValid(String email) {
         //TODO: Replace this with your own logic
@@ -287,31 +290,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderManager.Lo
         int IS_PRIMARY = 1;
     }
 
-   /* protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
-        //init();
-    }
-
-    */
-
-
-   /* void init() {
-
-        // ***** 핸드폰 고유번호 가져오기 *****
-        final TelephonyManager tm = (TelephonyManager) getBaseContext().getSystemService(Context.TELEPHONY_SERVICE);
-
-        final String tmDevice, tmSerial, androidId;
-        tmDevice = "" + tm.getDeviceId();
-        tmSerial = "" + tm.getSimSerialNumber();
-        androidId = "" + android.provider.Settings.Secure.getString(getContentResolver(), android.provider.Settings.Secure.ANDROID_ID);
-
-        UUID deviceUuid = new UUID(androidId.hashCode(), ((long) tmDevice.hashCode() << 32) | tmSerial.hashCode());
-        String deviceId = deviceUuid.toString();
-        // ***** 핸드폰 고유번호 가져오기 *****
-
-        login(deviceId);
-    }*/
 
     void login(final String id_num, final String password){
         new Thread(new Runnable() {
